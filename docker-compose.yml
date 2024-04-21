@@ -1,0 +1,47 @@
+version: '3.8'
+services:
+  nest-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: big-project
+    restart: always
+    ports:
+      - "$PORT:$PORT"
+    depends_on:
+      - database
+      - test-database
+    env_file:
+      - .env
+
+  database:
+    image: postgres
+    container_name: database
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+      TZ: 'GMT'
+      PGTZ: 'GMT'
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+    volumes:
+      - postgres:/data/postgres
+
+  test-database:
+    image: postgres
+    container_name: test-database
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+      TZ: 'GMT'
+      PGTZ: 'GMT'
+    ports:
+      - "5433:5433"
+    env_file:
+      - .env
+
+volumes:
+  postgres:
+    driver: local
