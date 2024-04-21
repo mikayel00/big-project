@@ -7,7 +7,11 @@ export class ApiConfigService {
 
   get appConfig() {
     return {
-      port: this.configService.get('PORT'),
+      port: this.configService.get<string>('PORT'),
+      env: this.configService.get<string>('NODE_ENV'),
+      documentationEnabled: this.configService.get<boolean>(
+        'ENABLE_DOCUMENTATION',
+      ),
     };
   }
 }

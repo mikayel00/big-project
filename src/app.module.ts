@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { SharedModule } from './shared/shared.module';
 import { ConfigModule } from '@nestjs/config';
+import { validate } from './common/dotenv.dto';
 
 @Module({
   imports: [
@@ -8,6 +9,7 @@ import { ConfigModule } from '@nestjs/config';
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: '.env',
+      validate,
     }),
   ],
   controllers: [],
