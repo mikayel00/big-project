@@ -6,12 +6,17 @@ Includes these following technologies
 
 ## Description
 
-This project created to provide
+But this repository is more than just a collection of code - 
+it's a testament to our commitment to innovation and excellence in software development.
+Here, you'll discover best practices, design patterns, and optimizations tailored to maximize the potential of NestJS, Prisma.io, ElasticSearch, etc. Empowering you to build exceptional APIs that stand the test of time.
 
 ## Installation
 
 ```bash
-# Install all dev and prod dependencies
+# Create Environment variables file and set your own data
+$ cp .env.example .env
+
+# Install dev and prod dependencies
 $ yarn install
 
 # Install docker dependencies
